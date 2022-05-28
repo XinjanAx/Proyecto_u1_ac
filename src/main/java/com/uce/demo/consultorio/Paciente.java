@@ -4,6 +4,7 @@ public class Paciente {
 	private String nombre;
 	private int edad;
 	
+//------get-set------------------------------
 	public String getNombre() {
 		return nombre;
 	}

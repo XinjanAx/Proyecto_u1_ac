@@ -1,5 +1,10 @@
 package com.uce.demo.consultorio;
 
+import org.springframework.stereotype.Component;
+
+//METADATOS
+	
+@Component
 public class Doctor {
 	private String nombre, apellido;
 
@@ -19,5 +24,12 @@ public class Doctor {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
+	@Override
+	public String toString() {
+		return "Doctor [nombre=" + nombre + ", apellido=" + apellido + "]";
+	}
+	
+	
 	
 }

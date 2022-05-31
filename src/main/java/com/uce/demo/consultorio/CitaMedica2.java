@@ -6,20 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CitaMedica {
-
-//1)Inyeccion por atributos
-//@Autowired
-	private LocalDateTime fechaCita;
-	private Doctor doc;
-	private Paciente pasiente;
+public class CitaMedica2 {
 	
-//2)Inyeccion por constructor
-	public CitaMedica(Doctor doc, Paciente pasiente) {
-		super();
-		this.doc = doc;
-		this.pasiente = pasiente;
-	}
+	private LocalDateTime fechaCita;
+
+	private Doctor doc;		// a los set @Autowired
+
+	private Paciente pasiente;   // a los set @Autowired
+	
 
 	public String agendar(LocalDateTime fechaCita,String nombreP, String aellidoP,
 							String ciudadP, int edadP,String nombreD, String apellidoD){
@@ -36,7 +30,23 @@ public class CitaMedica {
 		
 		return "Cita adendada";
 	}
-	
+
+	public Doctor getDoc() {
+		return doc;
+	}
+
+	public Paciente getPasiente() {
+		return pasiente;
+	}
+	@Autowired
+	public void setDoc(Doctor doc) {
+		this.doc = doc;
+	}
+	@Autowired
+	public void setPasiente(Paciente pasiente) {
+		this.pasiente = pasiente;
+	}
+
 	@Override
 	public String toString() {
 		return "CitaMedica [fechaCita=" + fechaCita + ", doc=" + doc + ", pasiente=" + pasiente + "]";

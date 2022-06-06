@@ -1,3 +1,0 @@
-package asd;
-asda
-asd

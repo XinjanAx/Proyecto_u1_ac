@@ -15,5 +15,5 @@ public interface IMatriculaS {
 	
 //	D:delete/eliminar
 	public void eliminar (String id);
-}
+
 }

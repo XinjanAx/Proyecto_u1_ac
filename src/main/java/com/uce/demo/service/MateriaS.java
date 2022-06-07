@@ -1,15 +1,17 @@
 package com.uce.demo.service;
 
 
-import com.uce.demo.modelo.Materia;
+import org.springframework.stereotype.Service;
 
+import com.uce.demo.modelo.Materia;
+@Service
 public class MateriaS implements IMateriaS{
 
 	
 	@Override
 	public void incertar(Materia e) {
 		// TODO Auto-generated method stub
-		System.out.println("se inserto una materia");
+		System.out.println("se inserto una materia "+ e);
 	}
 
 	@Override
@@ -21,7 +23,7 @@ public class MateriaS implements IMateriaS{
 	@Override
 	public void actualizar(Materia e) {
 		// TODO Auto-generated method stub
-		System.out.println("se actualizo materia");
+		System.out.println("se actualizo materia "+ e);
 	}
 
 	@Override
@@ -29,5 +31,6 @@ public class MateriaS implements IMateriaS{
 		// TODO Auto-generated method stub
 		System.out.println("se elimino la materia: "+id);
 	}
+	
 
 }

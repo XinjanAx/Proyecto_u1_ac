@@ -1,9 +1,11 @@
 package com.uce.demo.repository;
 
 
+import org.springframework.stereotype.Repository;
+
 import com.uce.demo.modelo.Materia;
 
-
+@Repository
 public class MateriaR implements IMateriaR
 {
 	
@@ -11,7 +13,7 @@ public class MateriaR implements IMateriaR
 	@Override
 	public void incertar(Materia m) {
 		// TODO Auto-generated method stub
-		System.out.println("se inserto una materia");
+		System.out.println("se inserto una materia "+ m);
 	}
 
 	@Override
@@ -23,7 +25,7 @@ public class MateriaR implements IMateriaR
 	@Override
 	public void actualizar(Materia e) {
 		// TODO Auto-generated method stub
-		System.out.println("se actualizo materia");
+		System.out.println("se actualizo materia "+ e);
 	}
 
 	@Override

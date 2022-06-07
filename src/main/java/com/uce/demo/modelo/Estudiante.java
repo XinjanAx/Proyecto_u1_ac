@@ -29,5 +29,10 @@ public class Estudiante {
 		this.apellido = apellido;
 	}
 
+	@Override
+	public String toString() {
+		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + "]";
+	}
+
 	
 }

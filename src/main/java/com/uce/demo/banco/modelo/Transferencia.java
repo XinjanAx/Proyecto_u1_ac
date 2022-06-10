@@ -5,10 +5,12 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Transferencia {
-	private String numeroCuentaOrigen;
+	
+	private String numeroCuentaOrigen,id;
 	private String numeroCuentaDestino;
 	private BigDecimal montoTransferir;
 	private LocalDateTime fechaTransferencia;
+
 
 //------------SET GET---------------------------------
 	public LocalDateTime getFechaTransferencia() {
@@ -35,12 +37,19 @@ public class Transferencia {
 	public void setMontoTransferir(BigDecimal montoTransferir) {
 		this.montoTransferir = montoTransferir;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
 	
 	@Override
 	public String toString() {
-		return "Transferencia [numeroCuentaOrigen=" + numeroCuentaOrigen + ", numeroCuentaDestino="
+		return "Transferencia [numeroCuentaOrigen=" + numeroCuentaOrigen + ", id=" + id + ", numeroCuentaDestino="
 				+ numeroCuentaDestino + ", montoTransferir=" + montoTransferir + ", fechaTransferencia="
 				+ fechaTransferencia + "]";
-	}
-	
+	}	
 }

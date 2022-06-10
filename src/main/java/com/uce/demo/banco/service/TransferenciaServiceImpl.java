@@ -12,21 +12,18 @@ import com.uce.demo.banco.repository.ITransferenciaRepository;
 
 @Service
 public class TransferenciaServiceImpl implements ITransferenciaService {
-	
-	//como la logica de CuentaBancariaService no hace nada 
-	//si se puede Inyectar el CuentaBancariaRepository
-	
+		
 	@Autowired
 	private ICuentaBancariaService bancariaService;
 	@Autowired
 	private ITransferenciaRepository iTransferenciaRepository; 
 
 	@Override
-	public void realizarTransferencia(String ctaOrigen, String ctaDestino, BigDecimal monto) {
-		// TODO Auto-generated method stub
+	public void realizarTransferencia(String id,String ctaOrigen, String ctaDestino, BigDecimal monto) {
+
 		CuentaBancaria cOrigen = this.bancariaService.buscar(ctaOrigen);
 		BigDecimal saldoOrigen = cOrigen.getSaldo();
-		BigDecimal nuevoSaldoOrigen = saldoOrigen.subtract(monto);// saldoOrigen - monto
+		BigDecimal nuevoSaldoOrigen = saldoOrigen.subtract(monto);
 		cOrigen.setSaldo(nuevoSaldoOrigen);
 		this.bancariaService.actualizar(cOrigen);
 
@@ -41,7 +38,25 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 		t.setNumeroCuentaDestino(ctaDestino);
 		t.setMontoTransferir(monto);
 		t.setFechaTransferencia(LocalDateTime.now());
-		this.iTransferenciaRepository.insertar(t);
+		this.iTransferenciaRepository.tranferir(t);
+	}
+
+	@Override
+	public void actualizarT(Transferencia t) {
+		// TODO Auto-generated method stub
+		this.iTransferenciaRepository.actualizarT(t);
+	}
+
+	@Override
+	public Transferencia buscarTranferencia(String id) {
+		// TODO Auto-generated method stub
+		return this.iTransferenciaRepository.buscarTransferencia(id);
+	}
+
+	@Override
+	public void eliminarDep(String id) {
+		// TODO Auto-generated method stub
+		this.iTransferenciaRepository.eliminarDep(id);
 	}
 
 }

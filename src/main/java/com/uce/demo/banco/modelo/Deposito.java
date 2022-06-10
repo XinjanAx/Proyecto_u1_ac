@@ -5,13 +5,15 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Deposito {
+	
 	private LocalDateTime fechaDeposito;
-	private String numeroCuentaDestino;
+	private String numeroCuentaDestino,id;
 	private BigDecimal monto;
+	
 	@Override
 	public String toString() {
-		return "Deposito [fechaDeposito=" + fechaDeposito + ", numeroCuentaDestino=" + numeroCuentaDestino + ", monto="
-				+ monto + "]";
+		return "Deposito [fechaDeposito=" + fechaDeposito + ", numeroCuentaDestino=" + numeroCuentaDestino + ", id="
+				+ id + ", monto=" + monto + "]";
 	}
 	
 	//SET AND GET
@@ -33,8 +35,13 @@ public class Deposito {
 	public void setMonto(BigDecimal monto) {
 		this.monto = monto;
 	}
-	
-	
-	
-	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+		
 }

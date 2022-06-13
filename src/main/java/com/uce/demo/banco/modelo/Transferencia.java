@@ -44,8 +44,6 @@ public class Transferencia {
 		this.id = id;
 	}
 	
-	
-	
 	@Override
 	public String toString() {
 		return "Transferencia [numeroCuentaOrigen=" + numeroCuentaOrigen + ", id=" + id + ", numeroCuentaDestino="

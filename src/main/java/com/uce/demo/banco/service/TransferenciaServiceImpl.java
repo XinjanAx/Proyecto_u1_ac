@@ -2,6 +2,7 @@ package com.uce.demo.banco.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,15 +12,15 @@ import com.uce.demo.banco.modelo.Transferencia;
 import com.uce.demo.banco.repository.ITransferenciaRepository;
 
 @Service
-public class TransferenciaServiceImpl implements ITransferenciaService {
-		
+public class TransferenciaServiceImpl implements ITransferenciaService{
+	
 	@Autowired
 	private ICuentaBancariaService bancariaService;
 	@Autowired
 	private ITransferenciaRepository iTransferenciaRepository; 
 	
 	@Override
-	public void realizarTransferencia(String id,String ctaOrigen, String ctaDestino, BigDecimal monto) {
+	public void realizarTransferencia(String ctaOrigen, String ctaDestino, BigDecimal monto, String numTransferencia) {
 
 		CuentaBancaria cOrigen = this.bancariaService.buscar(ctaOrigen);
 		BigDecimal saldoOrigen = cOrigen.getSaldo();
@@ -42,21 +43,27 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 	}
 
 	@Override
-	public void actualizarT(Transferencia t) {
+	public void actualizarTransferencia(Transferencia t) {
 		// TODO Auto-generated method stub
 		this.iTransferenciaRepository.actualizarT(t);
 	}
 
 	@Override
-	public Transferencia buscarTranferencia(String id) {
+	public Transferencia buscarTransferencia(String numTransferencia) {
 		// TODO Auto-generated method stub
-		return this.iTransferenciaRepository.buscarTransferencia(id);
+		return this.iTransferenciaRepository.buscarTransferencia(numTransferencia);
 	}
 
 	@Override
-	public void eliminar(String id) {
+	public void eliminarTransferencia(String id) {
 		// TODO Auto-generated method stub
 		this.iTransferenciaRepository.eliminarDep(id);
+	}
+
+	@Override
+	public List<Transferencia> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

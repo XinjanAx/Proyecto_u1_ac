@@ -1,5 +1,10 @@
 package com.uce.demo.banco.repository;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.uce.demo.banco.modelo.Retiro;
@@ -33,6 +38,19 @@ public class RetiroRepositoryImpl implements IRetiroRepository{
 	public void eliminar(String id) {
 		// TODO Auto-generated method stub
 		System.out.println("Se elimino el retiro:"+id);
+	}
+
+	@Override
+	public List<Retiro> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		List<Retiro> listaRetiros = new ArrayList<>();
+        Retiro ret1 = new Retiro();
+        ret1.setFechaRetiro(LocalDateTime.of(2022, 12, 20, 13, 34, 10));
+        ret1.setMonto(new BigDecimal(25));
+        ret1.setCuentaRetiro("1652");
+
+        listaRetiros.add(ret1);
+
+        return listaRetiros;
 	}
 
 }

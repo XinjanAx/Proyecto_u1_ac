@@ -3,6 +3,7 @@ package com.uce.demo.banco.service;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.uce.demo.banco.modelo.CuentaBancaria;
@@ -13,6 +14,7 @@ import com.uce.demo.banco.repository.IRetiroRepository;
 public class RetiroServiceImpl implements IRetiroService{
 	
 	@Autowired
+	@Qualifier("ahorros")
 	private ICuentaBancariaService bancariaService;
 	@Autowired
 	private IRetiroRepository retiroRepository;

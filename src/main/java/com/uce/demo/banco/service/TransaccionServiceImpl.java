@@ -99,9 +99,4 @@ public class TransaccionServiceImpl implements ITransaccionService{
 		
 		return tranTo;
 	}
-	
-	
-	
-	
-
 }

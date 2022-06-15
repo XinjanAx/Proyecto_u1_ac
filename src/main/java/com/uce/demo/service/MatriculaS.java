@@ -1,17 +1,32 @@
 package com.uce.demo.service;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uce.demo.modelo.Matricula;
+import com.uce.demo.modelo.ProfesorGeneral;
+import com.uce.demo.modelo.ProfesorMateria;
+import com.uce.demo.repository.IMatriculaR;
+
+
 @Service
 public class MatriculaS implements IMatriculaS{
 
-
+	@Autowired
+	private IMatriculaR iMatriculaRepo;
+	
+	@Autowired
+	private ProfesorGeneral pGeneral;
+	@Autowired
+	private ProfesorMateria pMateria;
+	
 	@Override
 	public void incertar(Matricula e) {
-		// TODO Auto-generated method stub
-		System.out.println("se incerto la matricula "+ e);
+		System.out.println("Di desde Service Single:"+this.pGeneral);
+		System.out.println("Di desde Service Proto:"+this.pMateria);
+		
+		this.iMatriculaRepo.incertar(e);
 	}
 
 	@Override

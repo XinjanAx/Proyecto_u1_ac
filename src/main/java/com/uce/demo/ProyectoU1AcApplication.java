@@ -7,54 +7,64 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
-import com.uce.demo.grupo.modelo.Baterista;
-import com.uce.demo.grupo.modelo.GrupoMusical;
-
+import com.uce.demo.modelo.Estudiante;
+import com.uce.demo.modelo.Materia;
+import com.uce.demo.modelo.Matricula;
+import com.uce.demo.modelo.ProfesorGeneral;
+import com.uce.demo.modelo.ProfesorMateria;
+import com.uce.demo.service.IMatriculaS;
 
 @SpringBootApplication
 public class ProyectoU1AcApplication implements CommandLineRunner{
 			
 	@Autowired
-	private Baterista bateria1;
+	private ProfesorGeneral general1;
 	@Autowired
-	private Baterista bateria2;
+	private ProfesorGeneral general2;
 	@Autowired
-	private GrupoMusical gupo1;
+	private ProfesorMateria materia1;
 	@Autowired
-	private GrupoMusical gupo2;
-
-	
+	private ProfesorMateria materia2;
+	@Autowired
+	private IMatriculaS iMatriculaService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1AcApplication.class, args);
 	}
+
 	@Override
 	public void run(String... args) throws Exception {
-		this.bateria1.setNombre("Fredo");
-		this.bateria1.setApellido("Godofredo");
+		this.general1.setNombre("Andres");
+		this.general1.setApellido("Benavides");
 		
-		this.gupo1.setNombre("Billy y los Gasonoros");
-		this.gupo1.setCiudad("Inframundo Records");
-		this.gupo1.setBateria1(bateria1);
+		System.out.println(this.general1);
+		System.out.println(this.general2);
 		
-		this.gupo2.setNombre("Los Borbotones");
-		this.gupo2.setCiudad("Springfield");
-		this.gupo2.setBateria1(bateria2);
+		System.out.println("-----------");		
+		this.general2.setNombre("chysus");
 		
-		System.out.println();
-		System.out.println(this.gupo1);
-		System.out.println("-----------------------");
-		System.out.println(this.gupo2);	
+		System.out.println(this.general1);
+		System.out.println(this.general2);
 		
-		System.out.println("\n-----------------------------------Cambio a baterista2--------------------------------");
+		System.out.println("--------------------#######################------------------");
 		
-		this.bateria2.setNombre("Vegeta");
-		this.bateria2.setApellido("");
 		
-		System.out.println();
-		System.out.println(this.gupo1);
-		System.out.println("-----------------------");
-		System.out.println(this.gupo2);
+		this.materia1.setNombre("mike");	
+		this.materia1.setApellido("wasausky");
+		
+		System.out.println(this.materia1);
+		System.out.println(this.materia2);
+		
+		System.out.println("-----------");		
+		System.out.println("--------------------#######################------------------");
+		
+		Matricula matricula1 = new Matricula();
+        matricula1.setEstudiante(new Estudiante());
+        matricula1.setMateria(new ArrayList<Materia>());
+        matricula1.setNumero("13123");
+
+        this.iMatriculaService.incertar(matricula1);
+		
+		
 	}
 }

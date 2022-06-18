@@ -1,7 +1,10 @@
 package com.uce.demo.service;
 
 
+import org.springframework.beans.factory.annotation.Lookup;
+
 import com.uce.demo.modelo.Materia;
+import com.uce.demo.modelo.ProfesorGeneral;
 
 public interface IMateriaS {
 	//CRUD
@@ -16,5 +19,7 @@ public interface IMateriaS {
 	
 //	D:delete/eliminar
 	public void eliminar (String id);
+
+
 }
 

@@ -32,6 +32,5 @@ public class MateriaS implements IMateriaS{
 		// TODO Auto-generated method stub
 		System.out.println("se elimino la materia: "+id);
 	}
-	
 
 }

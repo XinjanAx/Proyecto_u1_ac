@@ -1,6 +1,8 @@
 package com.uce.demo.service;
 
 import com.uce.demo.modelo.Matricula;
+import com.uce.demo.modelo.ProfesorGeneral;
+import com.uce.demo.modelo.ProfesorMateria;
 
 public interface IMatriculaS {
 	//CRUD
@@ -15,5 +17,8 @@ public interface IMatriculaS {
 	
 //	D:delete/eliminar
 	public void eliminar (String id);
+	public ProfesorGeneral obtenerProfesorG();
+
+	public ProfesorMateria obtenerProfesorM() ;
 
 }
